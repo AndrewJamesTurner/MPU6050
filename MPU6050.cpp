@@ -10,12 +10,12 @@
 #include <Wire.h> 
 
 
-MPU60X0::MPU6050(void)
+MPU6050::MPU6050(void)
 {
 	
 }
 
-int MPU6050::begin(void){
+void MPU6050::begin(void){
 
 	Wire.begin();
 
