@@ -32,6 +32,7 @@
 	{
 		public:
 			MPU60X0(void);
+			void begin(void;
 			float getAccelX(void);
 			float getAccelY(void);
 			float getAccelZ(void);

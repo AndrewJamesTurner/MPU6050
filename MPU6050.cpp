@@ -12,6 +12,11 @@
 
 MPU60X0::MPU6050(void)
 {
+	
+}
+
+int MPU6050::begin(void){
+
 	Wire.begin();
 
 	wakeUp();
