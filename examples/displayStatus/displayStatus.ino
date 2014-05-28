@@ -1,7 +1,7 @@
 #include <MPU6050.h>
 #include <Wire.h>
 
-MPU60X0 mpu6050;
+MPU6050 mpu6050;
 
 void setup()
 {   
