@@ -28,7 +28,7 @@
 
 	#define PWR_MGMT_1 		0x6B 
 
-	class MPU60X0
+	class MPU6050
 	{
 		public:
 			MPU60X0(void);

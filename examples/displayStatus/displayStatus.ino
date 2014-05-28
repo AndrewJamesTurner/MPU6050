@@ -1,7 +1,7 @@
-#include <MPU60X0.h>
+#include <MPU6050.h>
 #include <Wire.h>
 
-MPU60X0 mpu60X0;
+MPU60X0 mpu6050;
 
 void setup()
 {   
@@ -11,5 +11,5 @@ void setup()
 
 void loop()
 {
-   Serial.println(mpu60X0.getAccelX());
+   Serial.println(mpu6050.getAccelX());
 }

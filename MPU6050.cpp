@@ -6,11 +6,11 @@
 */
 
 #include "Arduino.h"
-#include <MPU60X0.h>
+#include <MPU6050.h>
 #include <Wire.h> 
 
 
-MPU60X0::MPU60X0(void)
+MPU60X0::MPU6050(void)
 {
 	Wire.begin();
 
@@ -24,7 +24,7 @@ MPU60X0::MPU60X0(void)
 }
 
 
-int MPU60X0::wakeUp(void){
+int MPU6050::wakeUp(void){
   
 	uint8_t sleepBit;
 	const uint8_t SLEEP = 0;
@@ -52,7 +52,7 @@ int MPU60X0::wakeUp(void){
 /*
   fetches one byte of data from the given register
 */
-uint8_t MPU60X0::getData(int reg){
+uint8_t MPU6050::getData(int reg){
   
   uint8_t data;
    
@@ -68,7 +68,7 @@ uint8_t MPU60X0::getData(int reg){
 }
 
 
-float MPU60X0::getAccelX(void){
+float MPU6050::getAccelX(void){
   
 	uint8_t lowerByte;
 	uint8_t upperByte; 
@@ -91,7 +91,7 @@ float MPU60X0::getAccelX(void){
 		return (float)accel / 2048;
 }
 
-float MPU60X0::getAccelY(void){
+float MPU6050::getAccelY(void){
   
 	uint8_t lowerByte;
 	uint8_t upperByte; 
@@ -115,7 +115,7 @@ float MPU60X0::getAccelY(void){
 }
 
 
-float MPU60X0::getAccelZ(void){
+float MPU6050::getAccelZ(void){
   
 	uint8_t lowerByte;
 	uint8_t upperByte; 
@@ -138,7 +138,7 @@ float MPU60X0::getAccelZ(void){
 		return (float)accel / 2048;
 }
 
-float MPU60X0::getGyroX(void){
+float MPU6050::getGyroX(void){
   
 	uint8_t lowerByte;
 	uint8_t upperByte; 
@@ -162,7 +162,7 @@ float MPU60X0::getGyroX(void){
 }
 
 
-float MPU60X0::getGyroY(void){
+float MPU6050::getGyroY(void){
   
 	uint8_t lowerByte;
 	uint8_t upperByte; 
@@ -185,7 +185,7 @@ float MPU60X0::getGyroY(void){
 		return (float)gyro / 16.4;
 }
 
-float MPU60X0::getGyroZ(void){
+float MPU6050::getGyroZ(void){
   
 	uint8_t lowerByte;
 	uint8_t upperByte; 
@@ -209,7 +209,7 @@ float MPU60X0::getGyroZ(void){
 }
 
 
-float MPU60X0::getTemp(void){
+float MPU6050::getTemp(void){
   
   uint8_t lowerByte;
   uint8_t upperByte;
@@ -226,7 +226,7 @@ float MPU60X0::getTemp(void){
 }
 
 
-void MPU60X0::setAccelRange2G(void){
+void MPU6050::setAccelRange2G(void){
   
 	uint8_t range = 0b00000000;
   
@@ -236,7 +236,7 @@ void MPU60X0::setAccelRange2G(void){
 	_accelRange = _accelRange & 0b00011000;
 }
 
-void MPU60X0::setAccelRange4G(void){
+void MPU6050::setAccelRange4G(void){
   
 	uint8_t range = 0b00001000;
   
@@ -246,7 +246,7 @@ void MPU60X0::setAccelRange4G(void){
 	_accelRange = _accelRange & 0b00011000;
 }
 
-void MPU60X0::setAccelRange8G(void){
+void MPU6050::setAccelRange8G(void){
   
 	uint8_t range = 0b00010000;
   
@@ -258,7 +258,7 @@ void MPU60X0::setAccelRange8G(void){
 
 
 
-void MPU60X0::setAccelRange16G(void){
+void MPU6050::setAccelRange16G(void){
   
 	uint8_t range = 0b00011000;
   
@@ -269,7 +269,7 @@ void MPU60X0::setAccelRange16G(void){
 }
 
 
-void MPU60X0::setGyroRange250DegPerSec(void){
+void MPU6050::setGyroRange250DegPerSec(void){
   
 	uint8_t range = 0b00000000;
   
@@ -279,7 +279,7 @@ void MPU60X0::setGyroRange250DegPerSec(void){
 	_gyroRange = _gyroRange & 0b00011000;
 }
 
-void MPU60X0::setGyroRange500DegPerSec(void){
+void MPU6050::setGyroRange500DegPerSec(void){
   
 	uint8_t range = 0b00001000;
   
@@ -290,7 +290,7 @@ void MPU60X0::setGyroRange500DegPerSec(void){
 }
 
 
-void MPU60X0::setGyroRange1000DegPerSec(void){
+void MPU6050::setGyroRange1000DegPerSec(void){
   
 	uint8_t data = 0b00010000;
   
@@ -301,7 +301,7 @@ void MPU60X0::setGyroRange1000DegPerSec(void){
 }
 
 
-void MPU60X0::setGyroRange2000DegPerSec(void){
+void MPU6050::setGyroRange2000DegPerSec(void){
   
 	uint8_t range = 0b00011000;
   
@@ -315,7 +315,7 @@ void MPU60X0::setGyroRange2000DegPerSec(void){
 /*
   fetches one byte of data from the given register
 */
-void MPU60X0::setData(int reg, const uint8_t data){
+void MPU6050::setData(int reg, const uint8_t data){
   
   Wire.beginTransmission(device_address);
   Wire.write(reg);
